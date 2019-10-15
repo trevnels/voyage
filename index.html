@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Voyage</title>
     <link rel="stylesheet" href="main.css">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
     <script src="math.js"></script>
     <script src="voyage.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.2.2/math.min.js"></script>
@@ -12,6 +16,10 @@
 
     <div id="controls">
         <h1>test</h1>
+        <table id="waypoints">
+            <tr><th>x</th><th>y</th><th>heading</th></tr>
+        </table>
+        <button onclick="addWaypoint()">+</button>
     </div>
     <div id="field">
         <img id="path-background" src="img/2019.png">

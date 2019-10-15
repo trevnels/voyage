@@ -1,7 +1,7 @@
 let coeffs
 function createSpline(x0, y0, h0, x1, y1, h1, curvaturePower){
 
-    curvaturePower = Math.sqrt((x0-x1)**2 + (y0-y1)**2);
+    curvaturePower *= Math.sqrt((x0-x1)**2 + (y0-y1)**2);
     let c = math.matrix([[0,0,0,1],[1,1,1,1],[0,0,1,0],[3,2,1,0]]);
     let inputs = math.matrix([[x0,y0],[x1,y1],[Math.cos(h0) * curvaturePower,Math.sin(h0) * curvaturePower],[Math.cos(h1) * curvaturePower,Math.sin(h1) * curvaturePower]]);
 
@@ -32,13 +32,14 @@ function createSpline(x0, y0, h0, x1, y1, h1, curvaturePower){
 function plotSpline(coeffobj){
 
     ctx.beginPath();
+    ctx.lineWidth = 4;
 
     let coords = fieldToPixelCoordinates(evaluatePoly(coeffobj.x, 0), evaluatePoly(coeffobj.y, 0), metric);
-    ctx.moveTo(coords.x, coords.y);
+    ctx.moveTo(Math.floor(coords.x), Math.floor(coords.y));
     for(let t = 0; t <= 1; t += 0.01){
 
         coords = fieldToPixelCoordinates(evaluatePoly(coeffobj.x, t), evaluatePoly(coeffobj.y, t), metric);
-        ctx.lineTo(coords.x, coords.y);
+        ctx.lineTo(Math.floor(coords.x), Math.floor(coords.y));
         console.log(coords)
 
     }

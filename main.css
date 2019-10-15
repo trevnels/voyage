@@ -34,3 +34,18 @@ body {
   left: calc(300px + calc(calc(100% - 300px) * 0.5));
   transform: translate(-50%, -50%);
 }
+
+#waypoints {
+  border-collapse: collapse;
+  border: none;
+  width: 100%;
+}
+#waypoints tr {
+  width: 100%;
+}
+#waypoints tr td, #waypoints tr th {
+  width: 33%;
+}
+#waypoints tr td input, #waypoints tr th input {
+  width: 100%;
+}

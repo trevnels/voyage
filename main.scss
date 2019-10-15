@@ -36,3 +36,18 @@ body {
   left: calc(#{$bar-width} + calc(calc(100% - #{$bar-width}) * 0.5));
   transform: translate(-50%, -50%);
 }
+
+#waypoints {
+  border-collapse: collapse;
+  border: none;
+  width: 100%;
+  tr {
+    width: 100%;
+    td, th {
+      width: 33%;
+      input {
+        width: 100%;
+      }
+    }
+  }
+}
