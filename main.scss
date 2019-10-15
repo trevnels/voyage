@@ -1,0 +1,38 @@
+$bar-width: 300px;
+
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+#controls {
+  position: absolute;
+  width: $bar-width;
+  height: 100%;
+  background-color: #eeeeee;
+  top: 0;
+  left: 0;
+  padding: 16px;
+}
+
+#field {
+  margin-left: $bar-width;
+}
+
+#path-background {
+  position: absolute;
+  top: 50%;
+  left: calc(#{$bar-width} + calc(calc(100% - #{$bar-width}) * 0.5));
+  transform: translate(-50%, -50%);
+}
+
+#path-canvas {
+  position: absolute;
+  top: 50%;
+  left: calc(#{$bar-width} + calc(calc(100% - #{$bar-width}) * 0.5));
+  transform: translate(-50%, -50%);
+}
