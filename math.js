@@ -7,11 +7,11 @@ function createSpline(x0, y0, h0, x1, y1, h1, curvaturePower){
 
     let ci = math.inv(c);
 
-    console.log(inputs);
-    console.log(ci);
+    // console.log(inputs);
+    // console.log(ci);
 
     coeffs = math.multiply(ci, inputs);
-    console.log(coeffs)
+    // console.log(coeffs)
     let coeffobj = {
         x: {
             a: coeffs.subset(math.index(0,0)),
@@ -29,23 +29,18 @@ function createSpline(x0, y0, h0, x1, y1, h1, curvaturePower){
    return coeffobj;
 }
 
-function plotSpline(coeffobj){
-
-    ctx.beginPath();
-    ctx.lineWidth = 4;
+function plotSpline(coeffobj, initialize){
 
     let coords = fieldToPixelCoordinates(evaluatePoly(coeffobj.x, 0), evaluatePoly(coeffobj.y, 0), metric);
-    ctx.moveTo(Math.floor(coords.x), Math.floor(coords.y));
+    if(initialize) ctx.moveTo(coords.x, coords.y);
     for(let t = 0; t <= 1; t += 0.01){
 
         coords = fieldToPixelCoordinates(evaluatePoly(coeffobj.x, t), evaluatePoly(coeffobj.y, t), metric);
-        ctx.lineTo(Math.floor(coords.x), Math.floor(coords.y));
-        console.log(coords)
+        ctx.lineTo(coords.x, coords.y);
+        // console.log(coords)
 
     }
 
-    ctx.stroke();
-    ctx.closePath();
 
 }
 

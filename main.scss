@@ -34,7 +34,7 @@ body {
   position: absolute;
   top: 50%;
   left: calc(#{$bar-width} + calc(calc(100% - #{$bar-width}) * 0.5));
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.5, 0.5);
 }
 
 #waypoints {
